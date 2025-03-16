@@ -37,7 +37,9 @@ export const ProfileMenu = () => {
     useEffect(() => {
         console.log('ProfileMenu: currentUser cambió', currentUser);
         if (currentUser?.avatar) {
-            const newAvatarUrl = `/uploads/${currentUser.id}/avatars/${currentUser.avatar}`;
+            const newAvatarUrl = `${
+                import.meta.env.VITE_BACKEND_STATIC
+            }/uploads/${currentUser.id}/avatars/${currentUser.avatar}`;
             console.log('ProfileMenu: nuevo avatarUrl', newAvatarUrl);
             setAvatarUrl(newAvatarUrl);
             setAvatarError(false);
