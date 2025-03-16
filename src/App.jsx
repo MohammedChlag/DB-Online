@@ -1,7 +1,6 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import { Layout } from './components/layout/Layout.jsx';
-// import { ThemeUserMode } from './components/ThemeUserMode.jsx';
 
 // Páginas Publicas
 import { LandingPage } from './pages/LandingPage.jsx';
@@ -35,7 +34,7 @@ function App() {
                     {/* Ruta 404 */}
                     <Route path="*" element={<NotFoundPage />} />
                     <Route path="/users">
-                    {/* Ruta LoginPage */}
+                        {/* Ruta LoginPage */}
                         <Route path="login" element={<LoginPage />} />
                         {/* Ruta RegisterPage */}
                         <Route path="register" element={<RegisterPage />} />
