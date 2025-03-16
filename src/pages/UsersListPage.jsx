@@ -191,7 +191,7 @@ export const UsersListPage = () => {
                                         }
                                     >
                                         <button
-                                            className="p-1 text-gray-400 hover:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-[#323232]"
+                                            className="p-1 text-gray-400 hover:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-[#323232] mr-2"
                                             onClick={() =>
                                                 setOpenMenuId(
                                                     openMenuId === user.id
@@ -206,6 +206,7 @@ export const UsersListPage = () => {
                                         >
                                             <EllipsisVerticalIcon className="h-5 w-5" />
                                         </button>
+
                                         {openMenuId === user.id && (
                                             <menu className="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white dark:bg-[#1b1b1b] ring-1 ring-black ring-opacity-5 z-50">
                                                 <li className="py-1">
