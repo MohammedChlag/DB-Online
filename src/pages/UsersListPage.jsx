@@ -140,7 +140,7 @@ export const UsersListPage = () => {
                 </button>
             </header>
 
-            <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3  gap-4 sm:gap-6">
+            <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 sm:gap-6">
                 {users
                     .filter((user) => user.role !== 'admin')
                     .map((user) => (
@@ -185,13 +185,13 @@ export const UsersListPage = () => {
 
                                 <Boundary>
                                     <nav
-                                        className="relative xl:mr-2"
+                                        className="relative"
                                         ref={(el) =>
                                             (menuRefs.current[user.id] = el)
                                         }
                                     >
                                         <button
-                                            className="p-1 text-gray-400 hover:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-[#323232] mr-2"
+                                            className="p-2 text-gray-400 hover:text-gray-300 rounded-full hover:bg-gray-100 dark:hover:bg-[#323232]"
                                             onClick={() =>
                                                 setOpenMenuId(
                                                     openMenuId === user.id
