@@ -302,7 +302,6 @@ export const downloadSharedFileService = async (shareToken) => {
 
 export const getFilePreviewService = async (id, token, file) => {
     try {
-        console.log(`Solicitando vista previa para archivo ID: ${id}`);
         const response = await fetch(`${apiPath}/files/${id}/preview`, {
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -335,7 +334,6 @@ export const getFilePreviewService = async (id, token, file) => {
 
         // Si es un PDF
         else if (contentType && contentType === 'application/pdf') {
-            console.log('Procesando PDF...');
             const blob = await response.blob();
             // Creamos un objeto URL con tipo específico para PDFs
             const objectUrl = URL.createObjectURL(blob);

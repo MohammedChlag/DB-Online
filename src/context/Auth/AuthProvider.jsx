@@ -57,25 +57,18 @@ export const AuthProvider = ({ children }) => {
     const refreshCurrentUser = async () => {
         if (token) {
             try {
-                console.log('Refrescando currentUser en AuthContext');
-                console.log('Token actual:', token.substring(0, 10) + '...');
-                console.log('currentUser antes de refrescar:', currentUser);
-
                 const user = await getOwnUserService(token);
-                console.log('Datos de usuario obtenidos:', user);
 
                 // Forzar un nuevo objeto para asegurar que React detecte el cambio
                 setCurrentUser({ ...user });
                 setIsAdmin(user.role === 'admin');
 
-                console.log('currentUser después de refrescar:', user);
                 return true;
             } catch (error) {
                 console.error('Error al refrescar currentUser:', error);
                 return false;
             }
         }
-        console.log('No hay token para refrescar currentUser');
         return false;
     };
 

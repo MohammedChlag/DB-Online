@@ -69,12 +69,6 @@ export const AssessmentPreview = () => {
                                 username: user.username || 'Usuario',
                                 avatar: user.avatarUrl || user.avatar || null,
                             };
-                            console.log(
-                                'Usuario obtenido:',
-                                user.username,
-                                'para ID:',
-                                userId
-                            );
                         }
                     } catch (error) {
                         console.error(

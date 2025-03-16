@@ -46,8 +46,6 @@ export const AssessmentsModal = ({
 
         try {
             setSubmitting(true);
-            console.log('Enviando valoración:', { vote: rating, comment });
-            console.log('Token utilizado:', token.substring(0, 10) + '...');
 
             // Enviar los datos con los nombres de campo que espera el backend
             const result = await createAssessmentService(
@@ -58,7 +56,6 @@ export const AssessmentsModal = ({
                 token
             );
 
-            console.log('Respuesta del servidor:', result);
             toast.success('¡Gracias por tu valoración!');
             setRating(0);
             setComment('');

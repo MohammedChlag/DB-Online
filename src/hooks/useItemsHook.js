@@ -48,8 +48,6 @@ export const useItemsHook = (
     // este es es el más complejo
     const handleShare = async () => {
         try {
-            console.log(`Compartiendo ${type}: ${item.name} (ID: ${item.id})`);
-
             // Resetear el estado de URLs antes de la nueva solicitud
             setShareUrls(null);
 
@@ -59,8 +57,6 @@ export const useItemsHook = (
 
             // Llamar al servicio para compartir
             const response = await shareStorageItemService(item.id, token);
-
-            console.log('Respuesta del servicio de compartir:', response);
 
             // Actualizar el estado con las URLs recibidas
             setShareUrls(response);

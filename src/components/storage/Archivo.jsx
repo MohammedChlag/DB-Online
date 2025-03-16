@@ -220,7 +220,6 @@ export const Archivo = ({
             <ShareModal
                 isOpen={showShareModal}
                 onClose={() => {
-                    console.log('Cerrando modal');
                     setShowShareModal(false);
                     // Actualizar el almacenamiento cuando se cierra el modal
                     if (onRefetchStorage) {

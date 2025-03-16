@@ -29,7 +29,6 @@ export const Carpeta = ({
     onDelete,
     onRefetchStorage,
 }) => {
-    console.log(`CARPETA `, folder);
     // maravilla de customHook
     const {
         showOptions,
@@ -151,9 +150,6 @@ export const Carpeta = ({
                     setShowShareModal(false);
                     // Actualizar el almacenamiento cuando se cierra el modal
                     if (onRefetchStorage) {
-                        console.log(
-                            'Actualizando almacenamiento después de cerrar modal de compartir'
-                        );
                         onRefetchStorage();
                     }
                 }}

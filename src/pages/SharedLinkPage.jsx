@@ -19,14 +19,12 @@ export const SharedLinkPage = () => {
     const [error, setError] = useState(null);
     const [resource, setResource] = useState(null);
     const [files, setFiles] = useState([]);
-    console.log(resource);
 
     useEffect(() => {
         const fetchSharedData = async () => {
             try {
                 setLoading(true);
                 const responseData = await getSharedLinkService(shareToken);
-                console.log('Datos recibidos:', responseData);
 
                 // La estructura es { data: {...}, files: [...] }
                 if (responseData && responseData.data) {

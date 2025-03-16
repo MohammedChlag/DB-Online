@@ -23,7 +23,6 @@ export const Sidebar = ({
     setActiveTab,
     inFolder = false,
 }) => {
-    console.log('inFolder', inFolder);
     const location = useLocation();
 
     return (

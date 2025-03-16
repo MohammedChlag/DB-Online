@@ -47,7 +47,6 @@ export const FilePreviewModal = ({ isOpen, onClose, file }) => {
                         preview.type === 'pdf' ||
                         preview.type === 'video')
                 ) {
-                    console.log(' 📝 Limpiando URL del objeto');
                     URL.revokeObjectURL(preview.content);
                 }
             };
@@ -67,7 +66,6 @@ export const FilePreviewModal = ({ isOpen, onClose, file }) => {
         setError(null); // Reseteamos errores anteriores
 
         try {
-            console.log(' 📁 Cargando vista previa para:', file.id);
             const previewData = await getFilePreviewService(
                 file.id,
                 token,

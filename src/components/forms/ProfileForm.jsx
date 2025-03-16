@@ -87,7 +87,6 @@ export const ProfileForm = () => {
             return;
         }
 
-        console.log('Archivo seleccionado:', file.name);
         try {
             const result = await updateAvatar(file);
             if (result) {

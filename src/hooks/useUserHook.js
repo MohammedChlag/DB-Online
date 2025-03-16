@@ -14,15 +14,10 @@ export const useUserHook = (id, token, refreshCallback = null) => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        console.log('=== useUserHook iniciado ===');
-        console.log('Token recibido:', !!token);
-        console.log('ID recibido:', id);
-
         let isSubscribed = true;
 
         const fetchUser = async () => {
             if (!token) {
-                console.log('No hay token disponible');
                 setError('Token no disponible');
                 setLoading(false);
                 return;
@@ -34,14 +29,11 @@ export const useUserHook = (id, token, refreshCallback = null) => {
                     ? await getUserService(id)
                     : await getOwnUserService(token);
 
-                console.log('Datos de usuario recibidos:', data);
-
                 if (isSubscribed) {
                     setUser(data);
                     setError(null);
                 }
             } catch (err) {
-                console.error('Error en fetchUser:', err);
                 if (isSubscribed) {
                     setError(err.message || 'Error fetching user');
                 }
@@ -55,7 +47,6 @@ export const useUserHook = (id, token, refreshCallback = null) => {
         fetchUser();
 
         return () => {
-            console.log('=== useUserHook limpiando ===');
             isSubscribed = false;
         };
     }, [id, token]);
@@ -70,11 +61,8 @@ export const useUserHook = (id, token, refreshCallback = null) => {
             setLoading(true);
             setError(null);
 
-            console.log('updateUser - Iniciando actualización con:', info);
-
             // Primero actualizamos el usuario
-            const message = await updateUserService(info, token);
-            console.log('updateUser - Usuario actualizado:', message);
+            await updateUserService(info, token);
             const updatedUser = await getOwnUserService(token);
 
             // Actualizamos el estado con los datos actualizados
@@ -94,7 +82,6 @@ export const useUserHook = (id, token, refreshCallback = null) => {
 
             return { success: true, user: updatedUser };
         } catch (error) {
-            console.error('updateUser - Error:', error);
             setError(error.message || 'Error updating user');
             return { success: false, error: error.message };
         } finally {
@@ -104,7 +91,6 @@ export const useUserHook = (id, token, refreshCallback = null) => {
 
     const updateAvatar = async (file) => {
         if (!token) {
-            console.log('No hay token disponible');
             setError('Token no disponible');
             return { success: false, error: 'Token no disponible' };
         }
@@ -142,7 +128,6 @@ export const useUserHook = (id, token, refreshCallback = null) => {
 
     const deleteAvatar = async () => {
         if (!token) {
-            console.log('No hay token disponible');
             setError('Token no disponible');
             return { success: false, error: 'Token no disponible' };
         }
@@ -188,12 +173,10 @@ export const useUserHook = (id, token, refreshCallback = null) => {
             setLoading(true);
             setError(null);
 
-            console.log('updatePassword - Iniciando actualización');
             await updatePasswordService(passwords, token);
 
             return { success: true };
         } catch (error) {
-            console.error('updatePassword - Error:', error);
             setError(error.message || 'Error updating password');
             return { success: false, error: error.message };
         } finally {
