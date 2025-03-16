@@ -1,0 +1,10 @@
+[
+    {
+        "text": "Registrarse",
+        "url": "/RegisterPage"
+    },
+    {
+        "text": "Iniciar Sesion",
+        "url": "/LoginPage"
+    }
+]
