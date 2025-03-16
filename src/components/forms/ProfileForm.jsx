@@ -166,7 +166,9 @@ export const ProfileForm = () => {
     // Construir la URL del avatar
     const avatarUrl =
         !avatarError && user?.avatar
-            ? `/uploads/${user.id}/avatars/${user.avatar}`
+            ? `${import.meta.env.VITE_BACKEND_STATIC}/${user.id}/avatars/${
+                  user.avatar
+              }`
             : null;
 
     return (
