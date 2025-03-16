@@ -185,7 +185,7 @@ export const UsersListPage = () => {
 
                                 <Boundary>
                                     <nav
-                                        className="relative ml-2"
+                                        className="relative xl:mr-2"
                                         ref={(el) =>
                                             (menuRefs.current[user.id] = el)
                                         }
