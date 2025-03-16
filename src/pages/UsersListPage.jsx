@@ -154,7 +154,12 @@ export const UsersListPage = () => {
                                         {user.avatar ? (
                                             <img
                                                 className="h-12 w-12 rounded-full object-cover border-2 border-gray-200"
-                                                src={`/uploads/${user.id}/avatars/${user.avatar}`}
+                                                src={`${
+                                                    import.meta.env
+                                                        .VITE_BACKEND_STATIC
+                                                }/${user.id}/avatars/${
+                                                    user.avatar
+                                                }`}
                                                 alt={`Avatar de ${user.username}`}
                                             />
                                         ) : (

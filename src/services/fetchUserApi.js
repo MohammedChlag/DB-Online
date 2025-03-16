@@ -131,7 +131,6 @@ export const recoveryPasswordService = async (email) => {
         return false; //falló
     }
 };
-
 export const resetPasswordService = async (recoveryPassCode, newPassword) => {
     //Usa el código para cambiar contraseña
 
